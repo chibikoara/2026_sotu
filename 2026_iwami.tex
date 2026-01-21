@@ -1,0 +1,276 @@
+\documentclass[a4paper,11pt]{ltjsreport}
+
+% ===== パッケージ =====
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{setspace}
+\usepackage{geometry}
+
+
+
+% ===== 行間（卒論でよく指定される） =====
+\onehalfspacing   % 1.5行
+
+% ===== 表紙情報 =====
+
+\geometry{
+  top=30mm,
+  bottom=30mm,
+  left=30mm,
+  right=30mm
+}
+
+\begin{document}
+
+\thispagestyle{empty}
+
+\vspace*{25mm}
+
+\begin{center}
+
+{\fontsize{20pt}{18pt}\selectfont コンピュータ科学科情報システム系卒業論文}
+
+\vspace{35mm}
+
+{\fontsize{24pt}{24pt}\selectfont\bfseries
+DTVMを用いたオフチェーン型\\スマートコントラクト実行基盤の\\組込みシステムへの適用
+}
+
+\vfill
+
+{\fontsize{20pt}{18pt}\selectfont 2026 年 2 月}
+
+\vspace{12mm}
+
+{\fontsize{20pt}{18pt}\selectfont
+102230045 \quad 岩見\ 一輝
+}
+
+\end{center}
+
+\newpage
+
+
+\section*{概要}
+\addcontentsline{toc}{chapter}{概要}
+
+近年,IoT技術の普及に伴い,組込み機器間での自律的な取引やデータ管理を実現する手段としてブロックチェーンおよびスマートコントラクトの活用が期待されている\cite{iot-blockchain}。
+しかし,すべてをノード上で実行する従来のフルオンチェーン実行方式では,膨大な計算コストや実行遅延,およびガスコストの発生が課題となり,計算資源や電力に制約のある組込み機器への適用は困難であった。
+また現在のブロックチェーンはクラウドサーバ等の外部リソースに依存した構成が一般的であるが,これは通信遅延や単一障害点のリスクを増大させる要因となっている。
+本研究では,組込み機器上でもスマートコントラクトを実行できるようにするために,スマートコントラクトの計算処理自体をデバイス近傍のオフチェーン環境で実行し,その実行結果および正当性の証跡のみをブロックチェーンに記録する手法を提案する。
+この構成により,ブロックチェーンの持つ透明性と改ざん耐性を維持しつつ,組込み機器における計算負荷の大幅な低減とリアルタイム性の向上を図る。
+またオフチェーン実行にはDTVM（DeTerministic Virtual Machine）というスマートコントラクト専用言語であるsolidityを実行可能かつ高い実行速度を誇る仮想マシンを使用する。
+本論文では,提案手法に基づいたプロトタイプシステムを構築し,一般的なPCを用いた評価実験を行う。
+既存のフルオンチェーン実行の実行方式と比較し,処理時間,消費電力,ガスコストの観点から組込み機器上に適用可能であるか,またどのような問題点が発生するか検討する。
+\newpage
+
+% ===== 目次 =====
+\tableofcontents
+\newpage
+
+% ===== 本文開始 =====
+\chapter{はじめに}
+\section{研究背景}
+近年,IoT技術の急速な普及により,センサーデバイスやアクチュエータなどの組込み機器がネットワークを介して相互に接続される社会が実現しつつある。
+IoT技術は,スマートシティ,自動運転,サプライチェーン管理,産業用ロボットなど,多岐にわたる分野で基盤技術として活用されている。
+これらのシステムでは,膨大な数のデバイス間でデータの授受や価値の取引が自律的に行われることが期待されており,その信頼性を担保する技術としてブロックチェーンおよびスマートコントラクトが注目を集めている\cite{iot-blockchain}。
+スマートコントラクトは,あらかじめ定義された契約条件をプログラムとして記述し,特定の条件が満たされた際に自動的に実行する仕組みである。
+中央集権的な管理者を介さず,分散ネットワーク上で実行されるため,プロセスの透明性や高い改ざん耐性を有している。
+しかし,現在のスマートコントラクトの実装,特にEthereumに代表されるパブリックブロックチェーンにおいては,契約の実行（計算処理）とデータの記録（合意形成）が不可分な「オンチェーン実行」が主流である。
+オンチェーン実行には,大きく分けて3つの課題が存在する。第一に,計算資源の制約である。ブロックチェーンに参加する全ノードが同一の計算を重複して行う必要があるため,計算コストが極めて高い。
+第二に,処理性能の限界である。現在主流であるEtherumのブロックチェーン上ではスマートコントラクトを実行するEVMという仮想マシンが存在しているが,ブロックチェーンが普及するにつれその処理性能はより高いものが求められる。
+第三に,経済的コストである。実行のたびに「ガス代」と呼ばれる手数料が発生し,頻繁にデータを更新するIoTデバイスにとって大きな負担となる。
+これらの課題から,現状のIoTシステムにおけるスマートコントラクトの活用は,潤沢な計算リソースを持つクラウドサーバ上で代理実行されるケースが一般的である。
+しかし,クラウド依存の構成は,通信遅延の増大や,特定のサーバがダウンした際にシステム全体が停止する単一障害点の問題を内包している。
+真の意味で自律的なIoTエコシステムを構築するためには,ネットワークの末端に位置する組込み機器そのものが,スマートコントラクトの実行能力を持つことが不可欠である。
+\section{研究目的}
+本研究の目的は,リソース制限の厳しい組込み機器上において,スマートコントラクトを効率的かつ安全に実行可能とするオフチェーン実行基盤を構築することである。
+本研究では,スマートコントラクトの複雑な論理演算をブロックチェーンの外側（オフチェーン）で,かつデバイスに近い組込み環境で実行し,
+その実行結果および実行が正しく行われたことを示す証跡のみをブロックチェーンへ接続・保存する仕組みを提案する。
+またオフチェーンでの実行にはEVMと比較して実行速度の速いDTVMを採用することで,より処理性能を向上させる。
+これにより,ブロックチェーンが持つ高いセキュリティ性を維持しつつ,オンチェーン実行のボトルネックを解消することを目指す。
+本研究を通じて,組込み機器が自律的に契約を履行できる環境を示すことで,IoT社会における高度な分散型自動化システムの実現に寄与する。
+\section{本論文の構成}
+第2章では本研究に必要な前提知識について詳しく述べる。第3章ではオフチェーン実行とオンチェーンでの保存を組み合わせる仕組みについて述べる。
+第4章では作成した仕組みを使用して従来のフルオンチェーン型のシステムと比較して評価実験を行い,組込み機器への適用性を評価する。
+第5章では本研究のまとめと今後の課題について述べる。
+
+
+\chapter{前提知識}
+\section{ブロックチェーン}
+ブロックチェーンとは,分散型台帳技術の一種であり,複数の参加者によって取引履歴を共有・管理する仕組みである。
+ブロックチェーンの特徴としてまず図\ref{fig:blockchain-data}のようなデータの保存方法である。
+取引データはブロックと呼ばれる単位にまとめられ,各ブロックは暗号学的ハッシュ関数によって直前のブロックと連結される。
+この構造により,過去のデータを改ざんすることが極めて困難となり,高い耐改ざん性が実現されている。\\
+
+ブロックチェーンの2つ目の特徴として,図\ref{fig:blockchain}のように中央管理者を必要としない点が挙げられる。
+従来の中央集権型システムでは,単一の管理主体がデータを管理していたが,ブロックチェーンではネットワーク参加者が全員取引を実行して確認することで取引の正当性を検証する。
+また中央集権型システムでは中央のサーバがエラーで止まってしまった場合,システム全体が停止してしまうが,ブロックチェーンの場合は一部のシステムが停止しても,システム全体は動き続けることができる。
+
+このような特性から,ブロックチェーンは暗号資産だけでなく,サプライチェーン管理やIoT分野など,改ざん耐性や透明性が求められる分野への応用が進められている。
+現在主流なブロックチェーンプラットフォームはEthereumである\cite{ethereum}。
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{fig/blockchain2.png}
+  \caption{ブロックチェーンのデータの保存方法}
+  \label{fig:blockchain-data}
+\end{figure}
+
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{fig/blockchain.png}
+  \caption{ブロックチェーンの概念図}
+  \label{fig:blockchain}
+\end{figure}
+
+
+
+\section{スマートコントラクト}
+スマートコントラクトとは,ブロックチェーン上で実行されるプログラムのことであり,あらかじめ定義された条件が満たされた場合に,自動的に処理を実行する仕組みである。
+Ethereum に代表されるブロックチェーンプラットフォームでは,スマートコントラクトがEVMという仮想マシン上で実行され,取引の自動化や信頼性の高い処理を実現している。
+開発にはスマートコントラクト専用言語であるSolidityが使われている。
+
+
+従来の中央集権型のようなシステム上での契約処理では,第三者機関やサーバが仲介する必要があったが,スマートコントラクトを用いることで,契約条件の検証から実行までをプログラムによって自動化できる。
+これにより,契約の間で他の人物が入り込むことがなく人為的ミスの削減やコスト削減が可能となる。また契約が直接行われるため,契約の透明性も高くなる。
+
+一方で,スマートコントラクトは通常,ブロックチェーン上のノードやサーバ環境で実行されるため,計算資源や実行コスト（Gas）に制約がある。
+実行コスト(Gas)とはスマートコントラクトの命令ごとにあらかじめ設定された数値であり,複雑な処理ほどそのコストは高くなっている。
+これによってネットワーク上で一部の処理を無限ループさせたり,複雑で重い処理を複数回じっこうさせたりといった悪意のあるスマートコントラクトの実行を防ぎ,
+ネットワーク利用者の公平性を維持してる。このガスコストを計算する処理はスマートコントラクトを実行する際に自動的に追加される。
+そのため組込み機器のようなリソース制約の厳しい環境で直接実行することを考えた場合,このガスコスト計算処理によってより必要なリソース量が増加し,
+実行するのが困難となる可能性がある。また組込み機器が高頻度で外部のデータを取得する場合,スマートコントラクトもそれだけ高頻度で実行する必要があるため,ガスコストによって処理が実行されない場合がある。
+これらの点が本研究の課題背景の一つとなっている。
+\section{DTVM}
+
+DTVM（Deterministic Trusted Virtual Machine）は,決定論的な実行を保証するWebAssembly（Wasm）ベースの仮想マシンである\cite{dtvm}。
+決定論とは異なる環境においても同一の入力に対して同一の実行結果を得られることであり,これによってどのような機器を使用したとしても同じ結果をえることができる。
+ブロックチェーンはネットワークにつながってる機器同士がお互いの実行結果を検証するためスマートコントラクトを実行するマシンは決定論的である必要がある。
+そのためDTVMのこの性質は,ブロックチェーンや分散システムにおいて,EVMに変わってスマートコントラクトを実行し,実行結果の検証や再現性を確保する上で重要である。\\
+
+またWebAssembly（Wasm）などの軽量な実行形式を用いることで,組込み機器のような計算資源が限られた環境でも動作可能である。
+これにより,従来はサーバ上で実行されていた処理を,組込み機器側で安全かつ決定論的に実行することが可能となる。
+そしてwasmベースであることからその実行可能な言語数も多く,c++,Rust,Goなど複数の言語で開発可能であり,スマートコントラクト開発用言語であるSolidityでも開発をすることが出来る。
+
+本研究では,スマートコントラクトの処理をすべてブロックチェーン上で実行するのではなく,DTVM を用いてオフチェーンで実行し,その結果のみをブロックチェーンに記録する方式を採用する。
+このアプローチにより,計算コストの削減や,組込み機器におけるスマートコントラクト実行環境の実現を目指す。
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{fig/dtvm.png}
+  \caption{DTVM}
+  \label{fig:dtvm}
+\end{figure}
+
+
+\chapter{提案手法}
+\section{オフチェーン実行+オンライン同期:DTVMとブロックチェーンの接続}
+本研究ではスマートコントラクトの処理をすべてブロックチェーンで実行するのではなく,オフチェーンで処理を行い,その結果のみをブロックチェーンに記録する方式を採用する。
+現状DTVMはただの実行マシンであり計算処理や判定等は得意としているが,持っているデータの状態管理等はできないため,スマートコントラクト内でも比較的単純な処理を対象にしてDTVMにオフチェーンで実行させる。\\
+一般的なシーケンス図をちゃんと綺麗に書いてここに載せる
+
+
+\chapter{評価実験}
+\section{実験概要}
+\subsection{実験1:単純なケースでの検証}
+実験1について簡単に説明
+\subsection{実験2:複雑なユースケースにおける検証}
+実験2について簡単に説明
+\subsection{実験環境}
+windows 11 pro\\
+プロセッサ	11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz\\
+実装 RAM	16.0 GB\\
+システムの種類	64 ビット オペレーティング システム,x64 ベース プロセッサ\\
+\section{実験1:単純なケースでの検証}
+\subsection{実験内容}
+シーケンス図やソースコードを使いながら解説
+\subsection{実験結果}
+フルオンチェーンとの比較結果
+
+\section{実験2:複雑なユースケースにおける検証}
+\subsection{実験内容}
+シーケンス図やソースコードを使いながら解説
+
+\subsection{実験結果}
+フルオンチェーンとの比較結果
+
+
+\section{考察}
+考察
+
+
+\chapter{おわりに}
+\section{まとめ}
+まとめ
+\section{今後の課題}
+今後の課題。
+
+
+% ===== 参考文献 =====
+\begin{thebibliography}{9}
+
+\bibitem{iot-blockchain}
+K. Christidis and M. Devetsikiotis,  
+\textit{Blockchains and Smart Contracts for the Internet of Things},  
+IEEE Access, vol. 4, pp. 2292--2303, 2016.  
+\url{https://ieeexplore.ieee.org/document/7467408}
+
+\bibitem{security}
+Ali Dorri, et al.
+\textit{Blockchain for IoT Security and Privacy: The Case
+Study of a Smart Home},  
+Conference	Paper	·	March	2017 
+\url{https://people.cs.pitt.edu/~mosse/courses/cs3720/Blockchain_for_IoT_Security_and_Privacy.pdf}
+
+\bibitem{offchain}
+Pooja Khobragade  
+\textit{On-chain Off-chain Blockchain Model for IoT
+using IPFS},  
+IET Conference Proceedings, July 2023
+\url{https://www.researchgate.net/publication/373003375_On-chain_off-chain_blockchain_model_for_IoT_using_IPFS}
+
+
+\bibitem{ethereum}
+G. Wood,  
+\textit{Ethereum: A Secure Decentralised Generalised Transaction Ledger},  
+Ethereum Yellow Paper, 2014.  
+\url{https://ethereum.github.io/yellowpaper/paper.pdf}
+
+\bibitem{dtvm}
+Wei Zhou, et al.  
+\textit{DTVM: REVOLUTIONIZING SMART CONTRACT EXECUTION
+WITH DETERMINISM AND COMPATIBILITY},  
+June 10, 2025
+\url{https://arxiv.org/pdf/2504.16552v2}
+
+\bibitem{marketplace}
+Kenta Kawai, Wu Yuxiao, Yutaka Matubara, and Hiroaki Takada
+\textit{BLOCKCHAIN-BASED DEMAND-SUPPLY 
+MATCHING SYSTEM FOR IOT DEVICE DATA 
+DISTRIBUTION },  
+2024
+\url{https://aircconline.com/csit/papers/vol14/csit142408.pdf?utm_source=chatgpt.com}
+
+
+% \bibitem{lightning}
+% J. Poon and T. Dryja,  
+% \textit{The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments},  
+% 2016.  
+% \url{https://lightning.network/lightning-network-paper.pdf}
+
+
+
+% \bibitem{ekiden}
+% R. Cheng, et al.,
+% \textit{Ekiden: A Platform for Confidentiality-Preserving, Trustworthy Smart Contracts},
+% IEEE European Symposium on Security and Privacy (EuroS\&P), 2019.
+% \url{https://ieeexplore.ieee.org/document/8806762}
+
+
+
+
+
+\end{thebibliography}
+
+\end{document}
