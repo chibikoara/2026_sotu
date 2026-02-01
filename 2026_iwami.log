@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.1.13)  21 JAN 2026 09:46
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.1.13)  2 FEB 2026 00:52
  restricted system commands enabled.
 **2026_iwami.tex
 (./2026_iwami.tex
@@ -950,9 +950,45 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen194
 \Gm@dimlist=\toks33
 )
-No file 2026_iwami.aux.
+(c:/texlive/2025/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
 
+(c:/texlive/2025/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(c:/texlive/2025/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen195
+\captionmargin=\dimen196
+\caption@leftmargin=\dimen197
+\caption@rightmargin=\dimen198
+\caption@width=\dimen199
+\caption@indent=\dimen256
+\caption@parindent=\dimen257
+\caption@hangindent=\dimen258
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->{\small \advance \lefts
+kip .0628\linewidth \advance \rightskip .0628\linewidth \vskip \abovecaptionski
+p \sbox \@tempboxa {#1{\hskip 1\zw }#2}\ifdim \wd \@tempboxa <\hsize \centering
+ \fi #1{\hskip 1\zw }#2\par \vskip \belowcaptionskip } on input line 1175.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count322
+\c@continuedfloat=\count323
+Package caption Info: hyperref package is loaded.
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count324
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count325
+) (./2026_iwami.aux)
 \openout1 = 2026_iwami.aux
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
@@ -977,18 +1013,19 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
+
 (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count322
-\scratchdimen=\dimen195
+\scratchcounter=\count326
+\scratchdimen=\dimen259
 \scratchbox=\box73
-\nofMPsegments=\count323
-\nofMParguments=\count324
+\nofMPsegments=\count327
+\nofMParguments=\count328
 \everyMPshowfont=\toks34
-\MPscratchCnt=\count325
-\MPscratchDim=\dimen196
-\MPnumerator=\count326
-\makeMPintoPDFobject=\count327
+\MPscratchCnt=\count329
+\MPscratchDim=\dimen260
+\MPnumerator=\count330
+\makeMPintoPDFobject=\count331
 \everyMPtoPDFconversion=\toks35
 ) (c:/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1000,6 +1037,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package hyperref Info: Link coloring OFF on input line 24.
+
+(./2026_iwami.out) (./2026_iwami.out)
 \@outlinefile=\write3
 
 \openout3 = 2026_iwami.out
@@ -1038,6 +1077,8 @@ Package hyperref Info: Link coloring OFF on input line 24.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 16.88971pt on input line 32.
@@ -1068,20 +1109,7 @@ LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 13.31584pt on input line 55.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 13.31584pt on input line 55.
-(load cache: extra_lmsans12-regular.luc)(load cache: extra_lmroman10-bold.luc)
-LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
-(Font)              Font shape `JT3/gt/m/n' tried instead on input line 58.
-LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 58.
-LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
-(Font)              Font shape `JY3/gt/m/n' tried instead on input line 58.
-LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 58.
-
-
-LaTeX Warning: Citation `iot-blockchain' on page 2 undefined on input line 58.
-
-[2]
+(load cache: extra_lmsans12-regular.luc) [2]
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 69.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
@@ -1096,11 +1124,26 @@ LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 23.00685pt on input line 69.
 (load cache: extra_lmsans17-regular.luc)
-No file 2026_iwami.toc.
+(./2026_iwami.toc
+LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 3.
+
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 6.47295pt on input line 3.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 4.62357pt on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+ (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+
+(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
 \tf@toc=\write4
 
 \openout4 = 2026_iwami.toc
-[3
+ [3
 
 ]
 第1章
@@ -1112,144 +1155,114 @@ LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
 (Font)              scaled to size 19.17854pt on input line 73.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 19.17854pt on input line 73.
-
-LaTeX Warning: Citation `iot-blockchain' on page 4 undefined on input line 77.
-
 [4
 
 ] [5]
 第2章
-
-LaTeX Warning: Reference `fig:blockchain-data' on page 6 undefined on input lin
-e 103.
-
-
-LaTeX Warning: Reference `fig:blockchain' on page 6 undefined on input line 107
-.
-
-
-LaTeX Warning: Citation `ethereum' on page 6 undefined on input line 112.
-
-<fig/blockchain2.png, id=39, 1077.02374pt x 375.4025pt>
+<fig/blockchain2.png, id=148, 1077.02374pt x 375.4025pt>
 File: fig/blockchain2.png Graphic file (type png)
 <use fig/blockchain2.png>
-Package luatex.def Info: fig/blockchain2.png  used on input line 115.
+Package luatex.def Info: fig/blockchain2.png  used on input line 116.
 (luatex.def)             Requested size: 341.43437pt x 119.00853pt.
-LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 116.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 116.
-<fig/blockchain.png, id=40, 604.2575pt x 302.63063pt>
+<fig/blockchain.png, id=149, 604.2575pt x 302.63063pt>
 File: fig/blockchain.png Graphic file (type png)
 <use fig/blockchain.png>
-Package luatex.def Info: fig/blockchain.png  used on input line 123.
+Package luatex.def Info: fig/blockchain.png  used on input line 124.
 (luatex.def)             Requested size: 341.43437pt x 171.00047pt.
 [6
 
 ] [7<./fig/blockchain2.png><./fig/blockchain.png>]
-
-LaTeX Warning: Citation `dtvm' on page 8 undefined on input line 148.
-
-<fig/dtvm.png, id=57, 248.42813pt x 264.99pt>
+<fig/dtvm.png, id=166, 248.42813pt x 264.99pt>
 File: fig/dtvm.png Graphic file (type png)
 <use fig/dtvm.png>
-Package luatex.def Info: fig/dtvm.png  used on input line 161.
+Package luatex.def Info: fig/dtvm.png  used on input line 162.
 (luatex.def)             Requested size: 341.43437pt x 364.22691pt.
-[8] [9<./fig/dtvm.png>]
+ [8] [9<./fig/dtvm.png>]
 第3章
 [10
 
 ]
+<fig/fullchain.png, id=185, 338.76563pt x 420.06938pt>
+File: fig/fullchain.png Graphic file (type png)
+<use fig/fullchain.png>
+Package luatex.def Info: fig/fullchain.png  used on input line 189.
+(luatex.def)             Requested size: 183.56651pt x 227.62204pt.
+LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
+(Font)              scaled to size 8.32242pt on input line 190.
+LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
+(Font)              scaled to size 8.32242pt on input line 190.
+<fig/offchain.png, id=186, 497.35812pt x 411.5375pt>
+File: fig/offchain.png Graphic file (type png)
+<use fig/offchain.png>
+Package luatex.def Info: fig/offchain.png  used on input line 195.
+(luatex.def)             Requested size: 275.0884pt x 227.62204pt.
+
+Overfull \hbox (70.23038pt too wide) in paragraph at lines 195--196
+ [][] 
+ []
+
+[11<./fig/fullchain.png><./fig/offchain.png>]
 第4章
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 176.
+(Font)              scaled to size 11.09656pt on input line 207.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 176.
+(Font)              scaled to size 11.09656pt on input line 207.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 176.
+(Font)              scaled to size 11.09656pt on input line 207.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 176.
-[11
+(Font)              scaled to size 11.09656pt on input line 207.
+[12
 
-] [12]
+] [13]
 第5章
-[13
+[14
 
 ](load cache: extra_lmroman10-italic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 215.
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 245.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 215.
+(Font)              scaled to size 8.44485pt on input line 245.
 LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 215.
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 245.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 215.
-(load cache: extra_lmmono10-regular.luc)
-LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 21
-7.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 217.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 217.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 217
-.
- (c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 217
-.
-
-(c:/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [14
+(Font)              scaled to size 8.44485pt on input line 245.
+(load cache: extra_lmmono10-regular.luc) [15
 
 ] (./2026_iwami.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
  ***********
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `2026_iwami.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `2026_iwami.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  3A0FF8C9C524BF83BC3BBEACCA543C68;2110.
+Package rerunfilecheck Info: File `2026_iwami.out' has not changed.
+(rerunfilecheck)             Checksum: 345C858FA63153744D1722231A6594B4;1944.
 )
 
 Here is how much of LuaTeX's memory you used:
- 12235 strings out of 476081
- 125244,662416 words of node,token memory allocated
- 1230 words of node memory still in use:
-   10 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 267 attribute, 55 glue_sp
-ec, 35 attribute_list, 1 write, 13 user_defined, 6 pdf_action nodes
-   avail lists: 1:9,2:36617,3:309,4:117,5:143,6:20,7:3756,8:106,9:1764,10:42,11:
-120
- 34375 multiletter control sequences out of 65536+600000
- 71 fonts using 72564703 bytes
- 119i,7n,112p,2034b,418s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 13738 strings out of 476081
+ 156564,662416 words of node,token memory allocated
+ 1254 words of node memory still in use:
+   10 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 278 attribute, 55 glue_sp
+ec, 36 attribute_list, 1 write, 13 user_defined, 6 pdf_action nodes
+   avail lists: 1:25,2:38995,3:308,4:245,5:142,6:67,7:4329,8:105,9:1994,10:42,11
+:120
+ 35837 multiletter control sequences out of 65536+600000
+ 70 fonts using 72432631 bytes
+ 119i,9n,128p,2034b,777s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf><c:/te
 xlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf><c:/texlive/
 2025/texmf-dist/fonts/opentype/public/lm/lmroman9-regular.otf><c:/texlive/2025/t
 exmf-dist/fonts/opentype/public/lm/lmsans12-regular.otf><c:/texlive/2025/texmf-d
 ist/fonts/opentype/public/lm/lmsans17-regular.otf><c:/texlive/2025/texmf-dist/fo
-nts/opentype/public/lm/lmroman10-bold.otf><c:/texlive/2025/texmf-dist/fonts/open
-type/public/lm/lmroman10-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/
-public/lm/lmroman17-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/publi
-c/haranoaji/HaranoAjiGothic-Medium.otf><c:/texlive/2025/texmf-dist/fonts/opentyp
-e/public/lm/lmroman12-bold.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public
-/haranoaji/HaranoAjiMincho-Regular.otf>
-Output written on 2026_iwami.pdf (14 pages, 750760 bytes).
+nts/opentype/public/lm/lmsans10-regular.otf><c:/texlive/2025/texmf-dist/fonts/op
+entype/public/lm/lmroman10-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentyp
+e/public/lm/lmroman17-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/pub
+lic/haranoaji/HaranoAjiGothic-Medium.otf><c:/texlive/2025/texmf-dist/fonts/opent
+ype/public/lm/lmroman12-bold.otf><c:/texlive/2025/texmf-dist/fonts/opentype/publ
+ic/haranoaji/HaranoAjiMincho-Regular.otf>
+Output written on 2026_iwami.pdf (15 pages, 806181 bytes).
 
-PDF statistics: 203 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
+PDF statistics: 310 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
  52 named destinations out of 1000 (max. 131072)
- 1 words of extra memory for PDF output out of 10000 (max. 100000000)
+ 169 words of extra memory for PDF output out of 10000 (max. 100000000)
 
