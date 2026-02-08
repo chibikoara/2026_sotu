@@ -7,6 +7,19 @@
 \usepackage{setspace}
 \usepackage{geometry}
 \usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+  basicstyle=\ttfamily\small,
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny,
+  captionpos=b,
+  tabsize=2
+}
 
 
 
@@ -77,15 +90,20 @@ DTVMを用いたオフチェーン型\\スマートコントラクト実行基�
 \section{研究背景}
 近年,IoT技術の急速な普及により,センサーデバイスやアクチュエータなどの組込み機器がネットワークを介して相互に接続される社会が実現しつつある。
 IoT技術は,スマートシティ,自動運転,サプライチェーン管理,産業用ロボットなど,多岐にわたる分野で基盤技術として活用されている。
-これらのシステムでは,膨大な数のデバイス間でデータの授受や価値の取引が自律的に行われることが期待されており,その信頼性を担保する技術としてブロックチェーンおよびスマートコントラクトが注目を集めている\cite{iot-blockchain}\cite{section}。
+これらのシステムでは,膨大な数のデバイス間でデータの授受や価値の取引が自律的に行われることが期待されており,その信頼性を担保する技術としてブロックチェーンおよびスマートコントラクトが注目を集めている\cite{iot-blockchain,security,bcot}。
 スマートコントラクトは,あらかじめ定義された契約条件をプログラムとして記述し,特定の条件が満たされた際に自動的に実行する仕組みである。
 中央集権的な管理者を介さず,分散ネットワーク上で実行されるため,プロセスの透明性や高い改ざん耐性を有している。
 しかし,現在のスマートコントラクトの実装,特にEthereumに代表されるパブリックブロックチェーンにおいては,契約の実行（計算処理）とデータの記録（合意形成）が不可分な「オンチェーン実行」が主流である。
-オンチェーン実行には,大きく分けて3つの課題が存在する。第一に,計算資源の制約である。ブロックチェーンに参加する全ノードが同一の計算を重複して行う必要があるため,計算コストが極めて高い。
-第二に,処理性能の限界である。現在主流であるEtherumのブロックチェーン上ではスマートコントラクトを実行するEVMという仮想マシンが存在しているが,ブロックチェーンが普及するにつれその処理性能はより高いものが求められる。
-第三に,経済的コストである。実行のたびに「ガス代」と呼ばれる手数料が発生し,頻繁にデータを更新するIoTデバイスにとって大きな負担となる。
-これらの課題から,現状のIoTシステムにおけるスマートコントラクトの活用は,潤沢な計算リソースを持つクラウドサーバ上で代理実行されるケースが一般的である。
-しかし,クラウド依存の構成は,通信遅延の増大や,特定のサーバがダウンした際にシステム全体が停止する単一障害点の問題を内包している。
+IoT技術とブロックチェーンを組み合わせるには,大きく分けて3つの課題が存在する。
+第一に,計算資源の制約である。ブロックチェーンに参加する全ノードが同一の計算を重複して行う必要があるため,計算コストが極めて高い。
+IoT機器上でオンチェーン実行を行うには限られたストレージや計算資源といった厳しいリソース制限から実装が難しいと考えられている\cite{bcot}。
+これに対してIPFS等を用いてデータ保存をオフチェーンへ逃がすオンチェーン/オフチェーン併用モデルが提案されている\cite{offchain}。
+第二に,処理性能の限界である。現在主流であるEtherumのブロックチェーン上ではスマートコントラクトを実行するEVMという仮想マシンが存在しているが,ブロックチェーンが普及が広まるにつれその処理性能はより高いものが求められる。
+ブロックチェーン上ですべての処理を完結させてスケールさせることには限界があり,高スループットが要求される用途ではオフチェーンで大部分の処理を行う必要性が指摘されている\cite{lightning}。
+加えて，オンチェーンでの重複計算を避けるために計算をオフチェーンで実行し,オンチェーンでは結果検証のみを行う枠組みが提案されている\cite{truebit}。
+第三に,経済的コストである。実行のたびに「ガス代」と呼ばれる手数料が発生し\cite{ethereum},頻繁にデータを更新するIoTデバイスにとって大きな負担となる。
+これらの課題から,現状のIoTシステムは,潤沢な計算リソースを持つクラウドサーバ上で代理実行されるケースが一般的である。
+しかし,クラウド依存の構成は,通信遅延の増大や,特定のサーバがダウンした際にシステム全体が停止する単一障害点の問題を内包している\cite{bcot}。
 真の意味で自律的なIoTエコシステムを構築するためには,ネットワークの末端に位置する組込み機器そのものが,スマートコントラクトの実行能力を持つことが不可欠である。
 \section{研究目的}
 本研究の目的は,リソース制限の厳しい組込み機器上において,スマートコントラクトを効率的かつ安全に実行可能とするオフチェーン実行基盤を構築することである。
@@ -96,7 +114,7 @@ IoT技術は,スマートシティ,自動運転,サプライチェーン管理,�
 本研究を通じて,組込み機器が自律的に契約を履行できる環境を示すことで,IoT社会における高度な分散型自動化システムの実現に寄与する。
 \section{本論文の構成}
 第2章では本研究に必要な前提知識について詳しく述べる。第3章ではオフチェーン実行とオンチェーンでの保存を組み合わせる仕組みについて述べる。
-第4章では作成した仕組みを使用した比較して評価実験を行い,組込み機器への適用性を評価する。
+第4章では作成した仕組みを使用して比較して評価実験を行い,組込み機器への適用性を評価する。
 第5章では本研究のまとめと今後の課題について述べる。
 
 
@@ -113,7 +131,7 @@ IoT技術は,スマートシティ,自動運転,サプライチェーン管理,�
 また中央集権型システムでは中央のサーバがエラーで止まってしまった場合,システム全体が停止してしまうが,ブロックチェーンの場合は一部のシステムが停止しても,システム全体は動き続けることができる。
 
 このような特性から,ブロックチェーンは暗号資産だけでなく,サプライチェーン管理やIoT分野など,改ざん耐性や透明性が求められる分野への応用が進められている。
-現在主流なブロックチェーンプラットフォームはEthereumである\cite{ethereum}。
+ブロックチェーンプラットフォームの代表例としてはEthereumが有名である\cite{ethereum}。
 \begin{figure}[tb]
   \centering
   \includegraphics[width=0.8\textwidth]{fig/blockchain2.png}
@@ -136,34 +154,33 @@ IoT技術は,スマートシティ,自動運転,サプライチェーン管理,�
 Ethereum に代表されるブロックチェーンプラットフォームでは,スマートコントラクトがEVMという仮想マシン上で実行され,取引の自動化や信頼性の高い処理を実現している。
 開発にはスマートコントラクト専用言語であるSolidityが使われている。
 
-
 従来の中央集権型のようなシステム上での契約処理では,第三者機関やサーバが仲介する必要があったが,スマートコントラクトを用いることで,契約条件の検証から実行までをプログラムによって自動化できる。
 これにより,契約の間で他の人物が入り込むことがなく人為的ミスの削減やコスト削減が可能となる。また契約が直接行われるため,契約の透明性も高くなる。
 
 一方で,スマートコントラクトは通常,ブロックチェーン上のノードやサーバ環境で実行されるため,計算資源や実行コスト（Gas）に制約がある。
 実行コスト(Gas)とはスマートコントラクトの命令ごとにあらかじめ設定された数値であり,複雑な処理ほどそのコストは高くなっている。
-これによってネットワーク上で一部の処理を無限ループさせたり,複雑で重い処理を複数回じっこうさせたりといった悪意のあるスマートコントラクトの実行を防ぎ,
-ネットワーク利用者の公平性を維持してる。このガスコストを計算する処理はスマートコントラクトを実行する際に自動的に追加される。
+これによってネットワーク上で一部の処理を無限ループさせたり,複雑で重い処理を複数回実行させたりといった悪意のあるスマートコントラクトの実行を防ぎ,
+ネットワーク利用者の公平性を維持している。このガスコストを計算する処理はスマートコントラクトを実行する際に自動的に追加される。
 そのため組込み機器のようなリソース制約の厳しい環境で直接実行することを考えた場合,このガスコスト計算処理によってより必要なリソース量が増加し,
 実行するのが困難となる可能性がある。また組込み機器が高頻度で外部のデータを取得する場合,スマートコントラクトもそれだけ高頻度で実行する必要があるため,ガスコストによって処理が実行されない場合がある。
 これらの点が本研究の課題背景の一つとなっている。
 \section{DTVM}
 
 DTVM（Deterministic Trusted Virtual Machine）は,決定論的な実行を保証するWebAssembly（Wasm）ベースの仮想マシンである\cite{dtvm}。
-決定論とは異なる環境においても同一の入力に対して同一の実行結果を得られることであり,これによってどのような機器を使用したとしても同じ結果をえることができる。
-ブロックチェーンはネットワークにつながってる機器同士がお互いの実行結果を検証するためスマートコントラクトを実行するマシンは決定論的である必要がある。
+決定論とは異なる環境においても同一の入力に対して同一の実行結果を得られることであり,これによってどのような機器を使用したとしても同じ結果を取得することができる。
+ブロックチェーンではそのネットワークに接続している機器同士がお互いの実行結果を検証するためスマートコントラクトを実行するマシンは決定論的である必要がある。
 そのためDTVMのこの性質は,ブロックチェーンや分散システムにおいて,EVMに変わってスマートコントラクトを実行し,実行結果の検証や再現性を確保する上で重要である。\\
 
 またWebAssembly（Wasm）という軽量な実行形式を用いることで,組込み機器のような計算資源が限られた環境でも動作可能である。
 これにより,従来はサーバ上で実行されていた処理を,組込み機器側で安全かつ決定論的に実行することが可能となる。
-そしてwasmベースであることからその実行可能な言語数も多く,c++,Rust,Goなど複数の言語で開発可能であり,スマートコントラクト開発用言語であるSolidityでも開発をすることが出来る。
+そしてwasmベースであることからその実行可能な言語数も多く,c++,Rust,Goなど複数の言語で開発可能であり,スマートコントラクト開発用言語であるSolidityで書かれたコントラクトもwasmを経由して実行することが出来る。
 
 本研究では,スマートコントラクトの処理をすべてブロックチェーン上で実行するのではなく,DTVM を用いてオフチェーンで実行し,その結果のみをブロックチェーンに記録する方式を採用する。
 このアプローチにより,計算コストの削減や,組込み機器におけるスマートコントラクト実行環境の実現を目指す。
 \begin{figure}[tb]
   \centering
   \includegraphics[width=0.8\textwidth]{fig/dtvm.png}
-  \caption{DTVM}
+  \caption{DTVMのコンパイル方式図}
   \label{fig:dtvm}
 \end{figure}
 
@@ -178,13 +195,58 @@ DTVM（Deterministic Trusted Virtual Machine）は,決定論的な実行を保�
 またガスコストを計算する処理の数も減るためプログラム全体の実行時間が短くなる可能性がある。\\
 一方でデメリットとして考えられることが,まずセキュリティ性の低下である。本来ブロックチェーンとはスマートコントラクトの実行をすべてのノードで行い,
 その結果をお互いに監視しあうことでその正当性を検証し,データをブロックにして保存する。しかしこの仕組みではコントラクトの処理をローカルで実行し,その結果のみをブロックチェーン上で保存する。
-そのためローカルで処理をする部分を改ざんされたとしてもブロックチェーン上から気づくことができなくなっている。また,ローカルで実行した結果をブロックチェーンに接続する際のオーバーヘッドの
+そのため仮にローカルで処理を実行する部分を改ざんされたとしても,ブロックチェーン上では改ざんされたプログラムから送信される結果のみ確認することになるため,
+IoT機器内でプログラムが改ざんされてしまっていることに気づくことができなくなっている。また,ローカルで実行した結果をブロックチェーンに接続する際のオーバーヘッドの
 大きさによっては実行時間全体が逆に長くなってしまう可能性も考えられる。\\
-本研究では実行時間に焦点を当てて,この手法について評価する。
+本研究では実行時間に焦点を当てて,この手法について評価する。セキュリティ面については第5章で今後の課題として扱う。
 \section{具体的な仕組みについて}
-本研究ではhardhatというブロックチェーン開発環境を使用する。javascriptで作成したプログラム内でDTVMに実行させるWasmファイルを指定して実行させ,あらかじめブロックチェーンにデプロイしておいた
+本研究ではhardhatというブロックチェーン開発環境を使用する。図\ref{fig:dtvm-script}のようにjavascriptで作成したプログラム内でDTVMに実行させるWasmファイルを指定して実行させ,あらかじめブロックチェーンにデプロイしておいた
 データを保存するコントラクトを呼び出すことで,DTVMの実行結果のみをブロックチェーンに保存する。従来のフルオンチェーン型である図\ref{fig:chain}(a)と今回提案する仕組みである図\ref{fig:chain}(b)を比較すると,ブロックチェーンで動作する部分が
 少なくなっていることが分かる。本研究ではこのブロックチェーン上の動作が少なくなる事によるメリット,デメリットを評価する。
+\begin{figure}[tb]
+  \centering
+  \begin{minipage}{0.95\textwidth}
+  \begin{lstlisting}
+  console.log("cwd =", process.cwd());
+  
+  const { ethers } = require("hardhat");
+  const { execSync } = require("child_process");
+  
+  // Hardhat ローカルノードにデプロイ済みのコントラクト
+  const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  
+  //DTVMに実行するWasmファイルを渡して実行させ,結果を取得する関数
+  async function runDTVM(n) {
+    const cmd = `../dtvm ./fibo.wasm -f run --args ${n}`;
+    const output = execSync(cmd).toString().trim();
+  
+    console.log("DTVM output:", output);
+  
+    if (output.includes(":")) {
+      return Number(output.split(":")[0]);
+    }
+    return Number(output);
+  }
+  
+  async function main() {
+    const Store = await ethers.getContractFactory("ResultStorage");
+    const store = await Store.attach(CONTRACT_ADDRESS);
+  
+    //DTVM呼び出し
+    const r = await runDTVM(5);
+  
+    //保存用コントラクトを呼び出して,結果をブロックチェーン上に保存
+    const tx = await store.storeResult(r);
+    const receipt = await tx.wait();     
+  }
+  
+  main().catch(console.error);
+  \end{lstlisting}
+  \end{minipage}
+  \caption{DTVMを呼び出して結果をオンチェーン保存する実験スクリプト}
+  \label{fig:dtvm-script}
+\end{figure}
+
 \begin{figure}[b]
   \centering
   \begin{subfigure}[t]{0.48\textwidth}
@@ -205,33 +267,204 @@ DTVM（Deterministic Trusted Virtual Machine）は,決定論的な実行を保�
 \chapter{評価実験}
 本章では,本研究で実施した評価実験の内容,実験環境,そしてその結果と考察について述べる。
 \section{実験概要}
-本実験ではフィボナッチ数列を計算するプログラムを対象として,3つのパターンでその実行速度,メモリ使用量,そして必要なガスコストを計測した。
-パターンは以下の3つである。
+本実験ではフィボナッチ数列を計算するプログラムを対象として,2つのパターンでその実行時間,メモリ使用量,そして必要なガスコストを計測した。
+実行は組込み機器上ではなくPC上で行い,実行結果をもとに組込み機器への適用性を評価した。
+実行するパターンは以下の2つである。
 \subsection{パターン1:EVMによるフルオンチェーンでの実行}
 従来のフルオンチェーン型の例として,Solidityで書いたフィボナッチ数列のスマートコントラクトをブロックチェーン上で実行する。
-\subsection{パターン2:DTVMによるオフチェーン実行(元の言語はc++)}
+\subsection{パターン2:DTVMによるオフチェーン実行(実行するWasmファイルの元の言語はc++)}
 DTVMを用いた提案手法の仕組みを使い,c++で書いたプログラムをWasmバイトコードにコンパイルして実行する。
 
 
-\subsection{実験環境}
+\section{実験環境}
 windows 11 Home\\
 プロセッサ	Intel(R) Core(TM) Ultra 5 125U\\
 実装 RAM	16.0 GB\\
 システムの種類	64 ビット オペレーティング システム,x64 ベース プロセッサ\\
 
 \section{実験内容}
-フィボナッチ数列30から40を順番に計算するプログラムを対象に実行速度,最大メモリ使用量,また数列40を計算して保存する際のガスコストを計測した。
-それぞれのパターンで30回プログラムを実行してその平均値で比較した。
+フィボナッチ数列30から40を順番に計算するプログラムを対象にプログラム全体の実行時間,それぞれのプログラムの異なる部分である呼び出し部分のみの実行時間,最大メモリ使用量,また数列40を計算して保存する際のガスコストを計測した。
+実行するフィボナッチ数列のプログラムはパターン1はSolidityで作成した図\ref{fig:fibo-sol},パターン2はc++で作成した図\ref{fig:fibo-c++}をWasmにコンパイルしたものを使用した。
+またフィボナッチ数列の引数を30から40に変化させて呼び出すためのプログラムはどちらのパターンもjavascriptで作成して図\ref{fig:program1},\ref{fig:program2}のようになった。
+実行結果の値についてはそれぞれのパターンで30回ずつプログラムを実行してその結果の平均値で比較した。
+\begin{figure}[tb]
+  \centering
+  \begin{minipage}{0.95\textwidth}
+  \begin{lstlisting}
+  // SPDX-License-Identifier: MIT
+  pragma solidity ^0.8.20;
+  
+  contract FibonacciStorage {
+  uint256 public lastResult;
+  uint256 public lastInput;
+  
+    function fibonacci(uint256 n) public pure returns (uint256) {
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+    
+        uint256 a = 0;
+        uint256 b = 1;
+    
+        for (uint256 i = 2; i <= n; i++) {
+            uint256 c = a + b;
+            a = b;
+            b = c;
+        }
+    
+        return b;
+    }
+    
+    function computeAndStore(uint256 n) external {
+        uint256 result = fibonacci(n);
+        lastInput = n;
+        lastResult = result;
+    }
+  }
+  \end{lstlisting}
+  \end{minipage}
+  \caption{パターン1用フィボナッチ数列(Solidity)}
+  \label{fig:fibo-sol}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \begin{minipage}{0.95\textwidth}
+  \begin{lstlisting}
+  extern "C" unsigned long long run(unsigned long long n) {
+      if (n == 0) return 0;
+      if (n == 1) return 1;
+  
+      unsigned long long prev = 0;
+      unsigned long long curr = 1;
+  
+      for (unsigned long long i = 2; i <= n; ++i) {
+          unsigned long long next = prev + curr;
+          prev = curr;
+          curr = next;
+      }
+  
+      return curr;
+  }
+  \end{lstlisting}
+  \end{minipage}
+  \caption{パターン2用フィボナッチ数列}
+  \label{fig:fibo-c++}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \begin{minipage}{0.95\textwidth}
+  \begin{lstlisting}
+  import pkg from "hardhat";
+  import { performance } from "node:perf_hooks";
+  
+  const { ethers } = pkg;
+  
+  // Hardhat ローカルノードにデプロイ済みのコントラクト
+  const CONTRACT_ADDR = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  
+  async function main() {
+    const Fib = await ethers.getContractFactory("FibonacciStorage");
+    const fib = await Fib.attach(CONTRACT_ADDR);
+    const start = performance.now();
+  
+    for (let n = 30; n <= 40; n++) {
+      const tx = await fib.computeAndStore(n);
+      const receipt = await tx.wait();
+  
+      const result = await fib.lastResult();
+    
+      console.log("n =", n);
+      console.log("result =", result.toString());
+      console.log("gasUsed =", receipt.gasUsed.toString());
+  
+    }
+    const end = performance.now();
+    console.log("wallTime(ms) =", (end - start).toFixed(2));
+  }
+  
+  main().catch(console.error);
+  
+  \end{lstlisting}
+  \end{minipage}
+  \caption{パターン1用実行プログラム}
+  \label{fig:program1}
+\end{figure}
+
+\begin{figure}[tb]
+  \centering
+  \begin{minipage}{0.95\textwidth}
+  \begin{lstlisting}
+  console.log("cwd =", process.cwd());
+  
+  const { ethers } = require("hardhat");
+  const { execSync } = require("child_process");
+  
+  
+  // Hardhat ローカルノードにデプロイ済みのコントラクト
+  const CONTRACT_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  
+  async function runDTVM(n) {
+    const cmd = `../dtvm ./fibo.wasm -f run --args ${n}`;
+    const output = execSync(cmd).toString().trim();
+  
+    console.log("DTVM output:", output);
+  
+    if (output.includes(":")) {
+      return Number(output.split(":")[0]);
+    }
+    return Number(output);
+  }
+  
+  
+  async function main() {
+    const Store = await ethers.getContractFactory("ResultStorage");
+    const store = await Store.attach(CONTRACT_ADDRESS);
+    const start = performance.now();
+  
+    for (let n = 30; n <= 40; n++) {
+      const r = await runDTVM(n);
+      const tx = await store.storeResult(r);
+      const receipt = await tx.wait();     
+      const result = await store.lastResult();
+    
+      console.log("n =", n);
+      console.log("result =", result.toString());
+      console.log("gasUsed =", receipt.gasUsed.toString());
+    }
+    const end = performance.now();
+    console.log("wallTime(ms) =", (end - start).toFixed(2));
+  }
+  
+  main().catch(console.error);
+  \end{lstlisting}
+  \end{minipage}
+  \caption{パターン2用実行プログラム}
+  \label{fig:program2}
+\end{figure}
+
+\FloatBarrier
+
 
 \section{実験結果}
-結果は図\ref{fig:time},\ref{fig:memory},\ref{fig:gas}のようになった。実行時間はパターン1のフルオンチェーンの方が短く,またメモリ使用量についてもパターン1の方が少ない結果となった。
-しかし必要なガスコストについてはパターン2がパターン1の約半分となった。
+結果は図\ref{fig:time},\ref{fig:calltime},\ref{fig:memory},\ref{fig:gas}のようになった。
+プログラム全体の実行時間とメモリ使用量はほとんど差が出ることはなく,従来のフルオンチェーンで実行するパターン1に対して,オフチェーン実行+オンチェーン同期型であるパターン2のほうが実行時間は約0.1秒ほど長く,
+メモリ使用量は約2000kbyte多くなった。
+またパターンごとに異なる部分である呼び出し部分の実行時間は約0.1秒ほどパターン2の方が長くなっており,この差はプログラム全体の実行時間の差とほとんど一致していた。
+そしてプログラムの実行に必要なガスコストについてはパターン2がパターン1の約半分となった。
 \begin{figure}[tb]
   \centering
   \includegraphics[width=0.8\textwidth]{fig/time.png}
-  \caption{実行時間の比較}
+  \caption{プログラム全体の実行時間の比較}
   \label{fig:time}
 \end{figure}
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=0.8\textwidth]{fig/calltime.png}
+  \caption{呼び出し部分の実行時間の比較}
+  \label{fig:calltime}
+\end{figure}
+
 \begin{figure}[tb]
   \centering
   \includegraphics[width=0.8\textwidth]{fig/memory.png}
@@ -245,13 +478,18 @@ windows 11 Home\\
   \label{fig:gas}
 \end{figure}
 
+\FloatBarrier
 
 \section{考察}
-実行前の予想では少なくとも実行時間とガスコストの2つはパターン2のオフチェーン実行の方が優れた結果になると予想していたが,実行時間がパターン1の方が短くなった。
-これはオフチェーン実行＋オンチェーン同期を達成するために作成した間のプログラムのオーバーヘッドが大きいためであると考えられる。DTVMのローカル実行呼び出しとブロックチェーンへの接続を担う
-間の仕組みをよりシンプルで単純なものにする,または今回はjavascriptで作成したがより高速な言語(例:Rust)で作成することでこのオーバーヘッドは減少すると考えられる。\\
-またメモリ使用量についても同様にパターン1の方が優れており,今回作成した仕組みはリソース量が制限されている組込み機器への適用性は低いと思われる。
-実行速度,メモリ使用量の2つを改善するためにも新たなオフチェーン実行＋オンチェーン同期の仕組みを作成する必要がある。\\
+実行前の予想では少なくとも実行時間とガスコストの2つはパターン2のオフチェーン実行の方が優れた結果になると予想していたが,実行時間についてはパターン1の方が短くなった。
+これは呼び出し部分の実行時間の比較から,パターン1はオンチェーン上のコントラクトを1度呼び出すとフィボナッチの計算からチェーン上に保存するまでをまとめて実行するのに対して,
+パターン2ではローカルにあるDTVMを呼び出した後にオンチェーン上の保存用コントラクトを呼び出すという二回の手順を行っているオーバーヘッドが大きいためであると考えられる。
+それによって実行時間がわずかに増加し,必要なメモリ使用量も大きくなっていると考えられる。\\
+この問題を解決するにはDTVMのローカル実行呼び出しとブロックチェーンへの接続を担う間の仕組みを一括で実行できるようなシンプルで単純なものにする,
+または今回javascriptで作成した実行プログラムをより高速な言語(例:Rust)で作成することでこのオーバーヘッドは減少すると考えられる。\\
+本研究ではオフチェーン実行＋オンチェーン同期型を組込み機器上でも実行できるようにすることが目的である。
+そのため本実験の環境下において今回作成した仕組みはリソース量が制限されている組込み機器への適用性は低いと思われる。
+実行時間,メモリ使用量の2つを改善するためにも新たなオフチェーン実行+オンチェーン同期の仕組みを作成する必要がある。\\
 ただガスコストについては大きく差がでており,今回は比較的単純な処理だったがより本格的な複雑な処理の場合はこのガスコストの差はより大きなものになると考えられる。
 その場合オフチェーン実行によって今までブロックチェーン上ではできなかった複雑な処理を実行することができたり,高頻度でプログラムを実行出来たりするといったメリットが出てくると思われる。
 
@@ -261,15 +499,16 @@ windows 11 Home\\
 \chapter{おわりに}
 \section{まとめ}
 本研究ではDTVMというwasmベースで開発言語の多い仮想マシンを使用して,従来のフルオンチェーンによるスマートコントラクト実行に代わる,オフチェーンでのDTVM実行+結果のみブロックチェーンに保存する
-仕組みを作成し,組込み機器への適用性を評価するために実行速度,メモリ使用量,そしてガスコストを計測して比較した。実験結果では実行速度とメモリ使用量が予想とは異なり,本研究で作成した仕組みよりも従来の
+仕組みを作成し,組込み機器への適用性を評価するために実行時間,メモリ使用量,そしてガスコストを計測して比較した。実験結果では実行時間とメモリ使用量が予想とは異なり,本研究で作成した仕組みよりも従来の
 フルオンチェーン型の方が優れた結果となった。これにより本研究で作成した仕組みでは組込み機器への適用性は低いため,作成方法を変えて新たな仕組みを作る必要があることを確認した。またそれと同時にガスコストについては
 オフチェーン実行の方が大きく優れていたため,オフチェーン実行+オンチェーン同期型の有用性を確認した。
 \section{今後の課題}
 本論文の実験では簡単なプログラムを対象にシンプルな比較実験を行ったが,IoT機器でのブロックチェーン動作を検証するためにも
 今後はより具体的なユースケース(例:IoT機器でのデータのやり取りを目的としたブロックチェーンシステム\cite{marketplace})に対しても検証する必要がある。
 また本論文では提案手法のデメリットであるセキュリティ面については詳しく述べなかったが,今後この手法を実現するためにはこのセキュリティ問題は解決する必要がある。
-
-
+本研究の方式では，オフチェーン実行部の改ざん検知が課題となる。これに対し,実行環境を信頼実行環境（TEE）で保護し,合意層と実行層を分離するアーキテクチャ\cite{ekiden}や,
+あるいはzk-SNARK等によるオフチェーン計算の証明生成とオンチェーン検証\cite{zksnark}といったアプローチが考えられる。
+これらの考え方を適用し，実行結果の改ざん耐性を向上させる設計が今後の課題である。
 
 
 % ===== 参考文献 =====
@@ -288,6 +527,10 @@ Study of a Smart Home},
 Conference	Paper	·	March	2017 
 \url{https://people.cs.pitt.edu/~mosse/courses/cs3720/Blockchain_for_IoT_Security_and_Privacy.pdf}
 
+\bibitem{bcot}
+H.-N. Dai, Z. Zheng, and Y. Zhang,
+\textit{Blockchain for Internet of Things: A Survey},
+\url{https://arxiv.org/pdf/1906.00245}
 
 
 \bibitem{offchain}
@@ -297,8 +540,17 @@ using IPFS},
 IET Conference Proceedings, July 2023
 \url{https://www.researchgate.net/publication/373003375_On-chain_off-chain_blockchain_model_for_IoT_using_IPFS}
 
+\bibitem{lightning}
+J. Poon and T. Dryja,  
+\textit{The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments},  
+2016.  
+\url{https://lightning.network/lightning-network-paper.pdf}
 
 
+\bibitem{truebit}
+J. Teutsch and C. Reitwie{\ss}ner,
+\textit{A Scalable Verification Solution for Blockchains},
+\url{https://arxiv.org/pdf/1908.04756}
 
 
 \bibitem{ethereum}
@@ -322,24 +574,20 @@ Kenta Kawai, Wu Yuxiao, Yutaka Matubara, and Hiroaki Takada
 MATCHING SYSTEM FOR IOT DEVICE DATA 
 DISTRIBUTION },  
 2024
-\url{https://aircconline.com/csit/papers/vol14/csit142408.pdf?utm_source=chatgpt.com}
-
-
-% \bibitem{lightning}
-% J. Poon and T. Dryja,  
-% \textit{The Bitcoin Lightning Network: Scalable Off-Chain Instant Payments},  
-% 2016.  
-% \url{https://lightning.network/lightning-network-paper.pdf}
+\url{hhttps://aircconline.com/csit/papers/vol14/csit142408.pdf}
 
 
 
-% \bibitem{ekiden}
-% R. Cheng, et al.,
-% \textit{Ekiden: A Platform for Confidentiality-Preserving, Trustworthy Smart Contracts},
-% IEEE European Symposium on Security and Privacy (EuroS\&P), 2019.
-% \url{https://ieeexplore.ieee.org/document/8806762}
+\bibitem{ekiden}
+R. Cheng, et al.,
+\textit{Ekiden: A Platform for Confidentiality-Preserving, Trustworthy, and Performant Smart Contract Execution},
+\url{https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8806762}
 
-
+\bibitem{zksnark}
+Alvaro Alonso Domenech, Jonathan Heiss, Stefan Tai
+\textit{Servicifying zk-SNARKs Execution for
+Verifiable Off-chain Computations},
+\url{https://arxiv.org/pdf/2404.16915}
 
 
 

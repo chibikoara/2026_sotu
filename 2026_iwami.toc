@@ -1,24 +1,24 @@
 \contentsline {chapter}{概要}{2}{section*.1}%
-\contentsline {chapter}{\numberline {第1章}はじめに}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}研究背景}{5}{section.1.1}%
-\contentsline {section}{\numberline {1.2}研究目的}{6}{section.1.2}%
-\contentsline {section}{\numberline {1.3}本論文の構成}{6}{section.1.3}%
-\contentsline {chapter}{\numberline {第2章}前提知識}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1}ブロックチェーン}{7}{section.2.1}%
-\contentsline {section}{\numberline {2.2}スマートコントラクト}{8}{section.2.2}%
-\contentsline {section}{\numberline {2.3}DTVM}{9}{section.2.3}%
-\contentsline {chapter}{\numberline {第3章}提案手法}{11}{chapter.3}%
-\contentsline {section}{\numberline {3.1}オフチェーン実行+オンライン同期}{11}{section.3.1}%
-\contentsline {section}{\numberline {3.2}具体的な仕組みについて}{12}{section.3.2}%
-\contentsline {chapter}{\numberline {第4章}評価実験}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}実験概要}{13}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}パターン1:EVMによるフルオンチェーンでの実行}{13}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}パターン2:DTVMによるオフチェーン実行(元の言語はc++)}{13}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}実験環境}{13}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}実験内容}{14}{section.4.2}%
-\contentsline {section}{\numberline {4.3}実験結果}{14}{section.4.3}%
-\contentsline {section}{\numberline {4.4}考察}{14}{section.4.4}%
-\contentsline {chapter}{\numberline {第5章}おわりに}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}まとめ}{17}{section.5.1}%
-\contentsline {section}{\numberline {5.2}今後の課題}{17}{section.5.2}%
-\contentsline {chapter}{参考文献}{18}{chapter*.11}%
+\contentsline {chapter}{\numberline {第1章}はじめに}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}研究背景}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}研究目的}{7}{section.1.2}%
+\contentsline {section}{\numberline {1.3}本論文の構成}{7}{section.1.3}%
+\contentsline {chapter}{\numberline {第2章}前提知識}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}ブロックチェーン}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}スマートコントラクト}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}DTVM}{10}{section.2.3}%
+\contentsline {chapter}{\numberline {第3章}提案手法}{12}{chapter.3}%
+\contentsline {section}{\numberline {3.1}オフチェーン実行+オンライン同期}{12}{section.3.1}%
+\contentsline {section}{\numberline {3.2}具体的な仕組みについて}{13}{section.3.2}%
+\contentsline {chapter}{\numberline {第4章}評価実験}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}実験概要}{16}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}パターン1:EVMによるフルオンチェーンでの実行}{16}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}パターン2:DTVMによるオフチェーン実行(実行するWasmファイルの元の言語はc++)}{16}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}実験環境}{17}{section.4.2}%
+\contentsline {section}{\numberline {4.3}実験内容}{17}{section.4.3}%
+\contentsline {section}{\numberline {4.4}実験結果}{22}{section.4.4}%
+\contentsline {section}{\numberline {4.5}考察}{25}{section.4.5}%
+\contentsline {chapter}{\numberline {第5章}おわりに}{26}{chapter.5}%
+\contentsline {section}{\numberline {5.1}まとめ}{26}{section.5.1}%
+\contentsline {section}{\numberline {5.2}今後の課題}{26}{section.5.2}%
+\contentsline {chapter}{参考文献}{28}{chapter*.17}%
