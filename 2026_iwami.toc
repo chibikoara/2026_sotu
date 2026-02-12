@@ -7,18 +7,18 @@
 \contentsline {section}{\numberline {2.1}ブロックチェーン}{8}{section.2.1}%
 \contentsline {section}{\numberline {2.2}スマートコントラクト}{9}{section.2.2}%
 \contentsline {section}{\numberline {2.3}DTVM}{10}{section.2.3}%
-\contentsline {chapter}{\numberline {第3章}提案手法}{12}{chapter.3}%
-\contentsline {section}{\numberline {3.1}オフチェーン実行+オンライン同期}{12}{section.3.1}%
-\contentsline {section}{\numberline {3.2}具体的な仕組みについて}{13}{section.3.2}%
-\contentsline {chapter}{\numberline {第4章}評価実験}{16}{chapter.4}%
-\contentsline {section}{\numberline {4.1}実験概要}{16}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}パターン1:EVMによるフルオンチェーンでの実行}{16}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}パターン2:DTVMによるオフチェーン実行(実行するWasmファイルの元の言語はc++)}{16}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}実験環境}{17}{section.4.2}%
-\contentsline {section}{\numberline {4.3}実験内容}{17}{section.4.3}%
-\contentsline {section}{\numberline {4.4}実験結果}{22}{section.4.4}%
-\contentsline {section}{\numberline {4.5}考察}{25}{section.4.5}%
-\contentsline {chapter}{\numberline {第5章}おわりに}{26}{chapter.5}%
-\contentsline {section}{\numberline {5.1}まとめ}{26}{section.5.1}%
-\contentsline {section}{\numberline {5.2}今後の課題}{26}{section.5.2}%
-\contentsline {chapter}{参考文献}{28}{chapter*.17}%
+\contentsline {chapter}{\numberline {第3章}提案手法}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}オフチェーン実行+オンライン同期:DTVMとブロックチェーンの接続機構}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}具体的な仕組みについて}{15}{section.3.2}%
+\contentsline {chapter}{\numberline {第4章}評価実験}{18}{chapter.4}%
+\contentsline {section}{\numberline {4.1}実験概要}{18}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}パターン１:EVMによるフルオンチェーンでの実行}{18}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}パターン２:DTVMによるオフチェーン実行(実行するWasmファイルの元の言語はc++)}{18}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}実験環境}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}実験内容}{19}{section.4.3}%
+\contentsline {section}{\numberline {4.4}実験結果}{24}{section.4.4}%
+\contentsline {section}{\numberline {4.5}考察}{27}{section.4.5}%
+\contentsline {chapter}{\numberline {第5章}おわりに}{28}{chapter.5}%
+\contentsline {section}{\numberline {5.1}まとめ}{28}{section.5.1}%
+\contentsline {section}{\numberline {5.2}今後の課題}{28}{section.5.2}%
+\contentsline {chapter}{参考文献}{30}{chapter*.20}%

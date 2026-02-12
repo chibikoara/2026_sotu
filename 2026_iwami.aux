@@ -31,52 +31,61 @@
 \newlabel{fig:blockchain}{{2.2}{9}{ブロックチェーンの概念図}{figure.caption.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}スマートコントラクト}{9}{section.2.2}\protected@file@percent }
 \citation{dtvm}
+\citation{dtvm}
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}DTVM}{10}{section.2.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces DTVMのコンパイル方式図}}{11}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:dtvm}{{2.3}{11}{DTVMのコンパイル方式図}{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第3章}提案手法}{12}{chapter.3}\protected@file@percent }
+\citation{evmone}
+\citation{dtvm}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces DTVMのコンパイル方式図}}{12}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:dtvm}{{2.3}{12}{DTVMのコンパイル方式図}{figure.caption.6}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces EVM,evmone,DTVMにおける提供機能の比較}}{13}{table.caption.7}\protected@file@percent }
+\newlabel{tab:vm-compare}{{2.1}{13}{EVM,evmone,DTVMにおける提供機能の比較}{table.caption.7}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第3章}提案手法}{14}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}オフチェーン実行+オンライン同期}{12}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}具体的な仕組みについて}{13}{section.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces DTVMを呼び出して結果をオンチェーン保存する実験スクリプト}}{14}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:dtvm-script}{{3.1}{14}{DTVMを呼び出して結果をオンチェーン保存する実験スクリプト}{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces 実行方式の比較}}{15}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:chain}{{3.2}{15}{実行方式の比較}{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第4章}評価実験}{16}{chapter.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}オフチェーン実行+オンライン同期:DTVMとブロックチェーンの接続機構}{14}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}具体的な仕組みについて}{15}{section.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces DTVMを呼び出して結果をオンチェーン保存する実験スクリプト}}{16}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:dtvm-script}{{3.1}{16}{DTVMを呼び出して結果をオンチェーン保存する実験スクリプト}{figure.caption.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces 実行方式の比較}}{17}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:chain}{{3.2}{17}{実行方式の比較}{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {第4章}評価実験}{18}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}実験概要}{16}{section.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}パターン1:EVMによるフルオンチェーンでの実行}{16}{subsection.4.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}パターン2:DTVMによるオフチェーン実行(実行するWasmファイルの元の言語はc++)}{16}{subsection.4.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}実験環境}{17}{section.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}実験内容}{17}{section.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces パターン1用フィボナッチ数列(Solidity)}}{18}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:fibo-sol}{{4.1}{18}{パターン1用フィボナッチ数列(Solidity)}{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces パターン2用フィボナッチ数列}}{19}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:fibo-c++}{{4.2}{19}{パターン2用フィボナッチ数列}{figure.caption.10}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces パターン1用実行プログラム}}{20}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:program1}{{4.3}{20}{パターン1用実行プログラム}{figure.caption.11}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces パターン2用実行プログラム}}{21}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:program2}{{4.4}{21}{パターン2用実行プログラム}{figure.caption.12}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}実験結果}{22}{section.4.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces プログラム全体の実行時間の比較}}{22}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:time}{{4.5}{22}{プログラム全体の実行時間の比較}{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces 呼び出し部分の実行時間の比較}}{23}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:calltime}{{4.6}{23}{呼び出し部分の実行時間の比較}{figure.caption.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces メモリ使用量の比較}}{23}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:memory}{{4.7}{23}{メモリ使用量の比較}{figure.caption.15}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces ガスコストの比較}}{24}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:gas}{{4.8}{24}{ガスコストの比較}{figure.caption.16}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}考察}{25}{section.4.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}実験概要}{18}{section.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}パターン１:EVMによるフルオンチェーンでの実行}{18}{subsection.4.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}パターン２:DTVMによるオフチェーン実行(実行するWasmファイルの元の言語はc++)}{18}{subsection.4.1.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces 実験環境（ハードウェア）}}{19}{table.caption.10}\protected@file@percent }
+\newlabel{tab:hw-env}{{4.1}{19}{実験環境（ハードウェア）}{table.caption.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces 実験環境（ソフトウェア）}}{19}{table.caption.11}\protected@file@percent }
+\newlabel{tab:sw-env}{{4.2}{19}{実験環境（ソフトウェア）}{table.caption.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}実験環境}{19}{section.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}実験内容}{19}{section.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces パターン１用フィボナッチ数列(Solidity)}}{20}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:fibo-sol}{{4.1}{20}{パターン１用フィボナッチ数列(Solidity)}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces パターン２用フィボナッチ数列}}{21}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:fibo-c++}{{4.2}{21}{パターン２用フィボナッチ数列}{figure.caption.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces パターン１用実行プログラム}}{22}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:program1}{{4.3}{22}{パターン１用実行プログラム}{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces パターン２用実行プログラム}}{23}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:program2}{{4.4}{23}{パターン２用実行プログラム}{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}実験結果}{24}{section.4.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces プログラム全体の実行時間の比較}}{24}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:time}{{4.5}{24}{プログラム全体の実行時間の比較}{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces 仮想マシン呼び出し部分の実行時間の比較}}{25}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:calltime}{{4.6}{25}{仮想マシン呼び出し部分の実行時間の比較}{figure.caption.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces メモリ使用量の比較}}{25}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:memory}{{4.7}{25}{メモリ使用量の比較}{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces ガスコストの比較}}{26}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:gas}{{4.8}{26}{ガスコストの比較}{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}考察}{27}{section.4.5}\protected@file@percent }
 \citation{marketplace}
 \citation{ekiden}
 \citation{zksnark}
-\@writefile{toc}{\contentsline {chapter}{\numberline {第5章}おわりに}{26}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {第5章}おわりに}{28}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\jsc@mpt }}
 \@writefile{lot}{\addvspace {10\jsc@mpt }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}まとめ}{26}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}今後の課題}{26}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}まとめ}{28}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}今後の課題}{28}{section.5.2}\protected@file@percent }
 \bibcite{iot-blockchain}{1}
 \bibcite{security}{2}
 \bibcite{bcot}{3}
@@ -85,8 +94,9 @@
 \bibcite{truebit}{6}
 \bibcite{ethereum}{7}
 \bibcite{dtvm}{8}
-\bibcite{marketplace}{9}
-\@writefile{toc}{\contentsline {chapter}{参考文献}{28}{chapter*.17}\protected@file@percent }
-\bibcite{ekiden}{10}
-\bibcite{zksnark}{11}
-\gdef \@abspage@last{29}
+\bibcite{evmone}{9}
+\bibcite{marketplace}{10}
+\@writefile{toc}{\contentsline {chapter}{参考文献}{30}{chapter*.20}\protected@file@percent }
+\bibcite{ekiden}{11}
+\bibcite{zksnark}{12}
+\gdef \@abspage@last{31}
