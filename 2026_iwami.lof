@@ -1,18 +1,18 @@
 \addvspace {10\jsc@mpt }
 \addvspace {10\jsc@mpt }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces ブロックチェーンのデータの保存方法}}{9}{figure.caption.4}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces ブロックチェーンの概念図}}{9}{figure.caption.5}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces DTVMのコンパイル方式図}}{12}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces ブロックチェーンのデータの保存方法}}{10}{figure.caption.4}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces ブロックチェーンの概念図}}{10}{figure.caption.5}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces DTVMのコンパイル方式図}}{13}{figure.caption.6}%
 \addvspace {10\jsc@mpt }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces DTVMを呼び出して結果をオンチェーン保存する実験スクリプト}}{16}{figure.caption.8}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces 実行方式の比較}}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 実行方式の比較}}{16}{figure.caption.8}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces DTVMを呼び出して結果をオンチェーン保存する実験スクリプト}}{18}{figure.caption.9}%
 \addvspace {10\jsc@mpt }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces パターン１用フィボナッチ数列(Solidity)}}{20}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces パターン２用フィボナッチ数列}}{21}{figure.caption.13}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces パターン１用実行プログラム}}{22}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces パターン２用実行プログラム}}{23}{figure.caption.15}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces プログラム全体の実行時間の比較}}{24}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces 仮想マシン呼び出し部分の実行時間の比較}}{25}{figure.caption.17}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces メモリ使用量の比較}}{25}{figure.caption.18}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces ガスコストの比較}}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces パターン１用フィボナッチ数列(Solidity)}}{22}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces パターン２用フィボナッチ数列}}{23}{figure.caption.16}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces パターン１用実行プログラム}}{24}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces パターン２用実行プログラム}}{25}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces プログラム全体の実行時間の比較}}{26}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 仮想マシン呼び出し部分の実行時間の比較}}{27}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces メモリ使用量の比較}}{27}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces ガスコストの比較}}{28}{figure.caption.22}%
 \addvspace {10\jsc@mpt }
