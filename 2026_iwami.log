@@ -1,6 +1,6 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.1.13)  14 FEB 2026 20:17
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.1.13)  16 FEB 2026 02:00
  restricted system commands enabled.
-**2026_iwami
+**2026_iwami.tex
 (./2026_iwami.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
@@ -1245,93 +1245,101 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [6
 
 
+] (./2026_iwami.lot)
+\tf@lot=\write7
+
+\openout7 = 2026_iwami.lot
+ [7
+
+
 ]
 第1章
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 102.
+(Font)              scaled to size 19.17854pt on input line 106.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 102.
+(Font)              scaled to size 19.17854pt on input line 106.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 102.
+(Font)              scaled to size 19.17854pt on input line 106.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 19.17854pt on input line 102.
-[7
+(Font)              scaled to size 19.17854pt on input line 106.
+[8
 
 
-] [8]
+] [9]
 第2章
-<fig/blockchain2.png, id=215, 1077.02374pt x 375.4025pt>
+<fig/blockchain2.png, id=229, 1077.02374pt x 375.4025pt>
 File: fig/blockchain2.png Graphic file (type png)
 <use fig/blockchain2.png>
-Package luatex.def Info: fig/blockchain2.png  used on input line 155.
+Package luatex.def Info: fig/blockchain2.png  used on input line 159.
 (luatex.def)             Requested size: 341.43437pt x 119.00853pt.
-<fig/blockchain.png, id=216, 604.2575pt x 302.63063pt>
+<fig/blockchain.png, id=230, 604.2575pt x 302.63063pt>
 File: fig/blockchain.png Graphic file (type png)
 <use fig/blockchain.png>
-Package luatex.def Info: fig/blockchain.png  used on input line 163.
+Package luatex.def Info: fig/blockchain.png  used on input line 167.
 (luatex.def)             Requested size: 341.43437pt x 171.00047pt.
-[9
+[10
 
-] [10<./fig/blockchain2.png><./fig/blockchain.png>]
+] [11<./fig/blockchain2.png><./fig/blockchain.png>]
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 187.
+(Font)              scaled to size 11.09656pt on input line 191.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 187.
+(Font)              scaled to size 11.09656pt on input line 191.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 187.
+(Font)              scaled to size 11.09656pt on input line 191.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 187.
- [11]
-<fig/dtvm.png, id=242, 248.42813pt x 264.99pt>
+(Font)              scaled to size 11.09656pt on input line 191.
+ [12]
+<fig/dtvm.png, id=256, 248.42813pt x 264.99pt>
 File: fig/dtvm.png Graphic file (type png)
 <use fig/dtvm.png>
-Package luatex.def Info: fig/dtvm.png  used on input line 226.
+Package luatex.def Info: fig/dtvm.png  used on input line 230.
 (luatex.def)             Requested size: 341.43437pt x 364.22691pt.
- [12] [13<./fig/dtvm.png>]
-Overfull \hbox (32.64273pt too wide) in paragraph at lines 258--310
+ [13] [14<./fig/dtvm.png>]
+Overfull \hbox (32.64273pt too wide) in paragraph at lines 259--311
  [][][][] 
  []
 
-[14]
+[15]
 第3章
-<fig/fullchain.png, id=264, 338.76563pt x 420.06938pt>
+[16
+
+]
+<fig/fullchain.png, id=283, 338.76563pt x 420.06938pt>
 File: fig/fullchain.png Graphic file (type png)
 <use fig/fullchain.png>
-Package luatex.def Info: fig/fullchain.png  used on input line 339.
+Package luatex.def Info: fig/fullchain.png  used on input line 364.
 (luatex.def)             Requested size: 183.56651pt x 227.62204pt.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 340.
+(Font)              scaled to size 8.32242pt on input line 365.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 340.
-<fig/offchain.png, id=265, 497.35812pt x 411.5375pt>
+(Font)              scaled to size 8.32242pt on input line 365.
+<fig/offchain.png, id=284, 497.35812pt x 411.5375pt>
 File: fig/offchain.png Graphic file (type png)
 <use fig/offchain.png>
-Package luatex.def Info: fig/offchain.png  used on input line 345.
+Package luatex.def Info: fig/offchain.png  used on input line 370.
 (luatex.def)             Requested size: 275.0884pt x 227.62204pt.
 
-Overfull \hbox (70.23038pt too wide) in paragraph at lines 345--346
+Overfull \hbox (70.23038pt too wide) in paragraph at lines 370--371
  [][] 
  []
 
-[15
-
-] [16<./fig/fullchain.png><./fig/offchain.png>](load cache: extra_lmmono10-regul
-ar.luc)
+[17<./fig/fullchain.png><./fig/offchain.png>] [18](load cache: extra_lmmono10-re
+gular.luc)
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 394.
+(Font)              scaled to size 8.32242pt on input line 415.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
-(Font)              scaled to size 8.32242pt on input line 394.
+(Font)              scaled to size 8.32242pt on input line 415.
 Removing  `ltj.process_input_buffer' from `process_input_buffer'.
 Inserting `ltj.listings_unicode' in `process_input_buffer'.
 Inserting `ltj.process_input_buffer' in `process_input_buffer'.(load cache: extr
 a_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 395.
-Removing  `ltj.listings_unicode' from `process_input_buffer'. [17] [18]
+(Font)              scaled to size 4.62357pt on input line 416.
+Removing  `ltj.listings_unicode' from `process_input_buffer'. [19]
 第4章
-[19
+[20
 
-] [20]
+] [21]
 Removing  `ltj.process_input_buffer' from `process_input_buffer'.
 Inserting `ltj.listings_unicode' in `process_input_buffer'.
 Inserting `ltj.process_input_buffer' in `process_input_buffer'.
@@ -1347,67 +1355,67 @@ Removing  `ltj.listings_unicode' from `process_input_buffer'.
 Removing  `ltj.process_input_buffer' from `process_input_buffer'.
 Inserting `ltj.listings_unicode' in `process_input_buffer'.
 Inserting `ltj.process_input_buffer' in `process_input_buffer'.
-Removing  `ltj.listings_unicode' from `process_input_buffer'. [21] [22] [23] [2
-4] [25]
-<fig/time.png, id=498, 339.2675pt x 199.24437pt>
+Removing  `ltj.listings_unicode' from `process_input_buffer'. [22] [23] [24] [2
+5] [26]
+<fig/time.png, id=512, 339.2675pt x 199.24437pt>
 File: fig/time.png Graphic file (type png)
 <use fig/time.png>
-Package luatex.def Info: fig/time.png  used on input line 697.
+Package luatex.def Info: fig/time.png  used on input line 722.
 (luatex.def)             Requested size: 341.43437pt x 200.5238pt.
-<fig/calltime.png, id=499, 339.2675pt x 204.765pt>
+<fig/calltime.png, id=513, 339.2675pt x 204.765pt>
 File: fig/calltime.png Graphic file (type png)
 <use fig/calltime.png>
-Package luatex.def Info: fig/calltime.png  used on input line 703.
+Package luatex.def Info: fig/calltime.png  used on input line 728.
 (luatex.def)             Requested size: 341.43437pt x 206.07986pt.
-<fig/memory.png, id=500, 280.54813pt x 166.12062pt>
+<fig/memory.png, id=514, 280.54813pt x 166.12062pt>
 File: fig/memory.png Graphic file (type png)
 <use fig/memory.png>
-Package luatex.def Info: fig/memory.png  used on input line 710.
+Package luatex.def Info: fig/memory.png  used on input line 735.
 (luatex.def)             Requested size: 341.43437pt x 202.18271pt.
-<fig/gas.png, id=501, 340.77313pt x 203.25937pt>
+<fig/gas.png, id=515, 340.77313pt x 203.25937pt>
 File: fig/gas.png Graphic file (type png)
 <use fig/gas.png>
-Package luatex.def Info: fig/gas.png  used on input line 716.
+Package luatex.def Info: fig/gas.png  used on input line 741.
 (luatex.def)             Requested size: 341.43437pt x 203.66515pt.
- [26
+ [27
 
-<./fig/time.png>] [27<./fig/calltime.png><./fig/memory.png>] [28<./fig/gas.png>] [29
+<./fig/time.png>] [28<./fig/calltime.png><./fig/memory.png>] [29<./fig/gas.png>] [30
 
 ]
 第5章
-[30
+[31
 
-] [31](load cache: extra_lmroman10-italic.luc)
+] [32](load cache: extra_lmroman10-italic.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/it' in size <10> not available
-(Font)              Font shape `JT3/mc/m/n' tried instead on input line 774.
+(Font)              Font shape `JT3/mc/m/n' tried instead on input line 800.
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 774.
+(Font)              scaled to size 8.44485pt on input line 800.
 LaTeX Font Info:    Font shape `JY3/mc/m/it' in size <10> not available
-(Font)              Font shape `JY3/mc/m/n' tried instead on input line 774.
+(Font)              Font shape `JY3/mc/m/n' tried instead on input line 800.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 774.
- [32
+(Font)              scaled to size 8.44485pt on input line 800.
+ [33
 
-] [33] (./2026_iwami.aux)
+] [34] (./2026_iwami.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
  ***********
 Package rerunfilecheck Info: File `2026_iwami.out' has not changed.
-(rerunfilecheck)             Checksum: EA37BB50D051103B13CB24272EDD4F88;2013.
+(rerunfilecheck)             Checksum: CB739C2B95BAF3E4B8B993B0048FC473;2013.
 )
 
 Here is how much of LuaTeX's memory you used:
- 16287 strings out of 476081
- 1458274,794899 words of node,token memory allocated
+ 16303 strings out of 476081
+ 1458211,794899 words of node,token memory allocated
  1392 words of node memory still in use:
    10 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 333 attribute, 55 glue_sp
 ec, 41 attribute_list, 1 write, 13 user_defined, 9 pdf_action nodes
-   avail lists: 1:18,2:307492,3:771,4:26358,5:18570,6:160,7:16040,8:105,9:37783,
-10:40,11:1091
- 38110 multiletter control sequences out of 65536+600000
+   avail lists: 1:20,2:308036,3:775,4:26350,5:18566,6:160,7:16102,8:105,9:37779,
+10:42,11:1091
+ 38115 multiletter control sequences out of 65536+600000
  73 fonts using 76474319 bytes
- 119i,10n,128p,2030b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 119i,10n,128p,2034b,966s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf><c:/te
 xlive/2025/texmf-dist/fonts/opentype/public/lm/lmmono10-regular.otf><c:/texlive/
 2025/texmf-dist/fonts/opentype/public/lm/lmmono9-regular.otf><c:/texlive/2025/te
@@ -1421,10 +1429,10 @@ mroman17-regular.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/haranoaji
 /HaranoAjiGothic-Medium.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/lm
 /lmroman12-bold.otf><c:/texlive/2025/texmf-dist/fonts/opentype/public/haranoaji/
 HaranoAjiMincho-Regular.otf>
-Output written on 2026_iwami.pdf (33 pages, 920041 bytes).
+Output written on 2026_iwami.pdf (34 pages, 917369 bytes).
 
-PDF statistics: 668 PDF objects out of 1000 (max. 8388607)
- 570 compressed objects within 6 object streams
- 250 named destinations out of 1000 (max. 131072)
+PDF statistics: 681 PDF objects out of 1000 (max. 8388607)
+ 582 compressed objects within 6 object streams
+ 253 named destinations out of 1000 (max. 131072)
  185 words of extra memory for PDF output out of 10000 (max. 100000000)
 
